@@ -142,7 +142,7 @@ const staggered = {
   },
 };
 
-function Counter({
+function StatCounter({
   to,
   suffix,
   label,
@@ -379,10 +379,10 @@ export default function HomePage() {
       </section>
 
       <section className={styles.statsBar}>
-        <Counter to={3} suffix="+" label="Years experience" />
-        <Counter to={20} suffix="+" label="Projects delivered" />
-        <Counter to={3} label="Specialists on team" />
-        <Counter to={100} suffix="%" label="Client retention" />
+        <StatCounter to={3} suffix="+" label="Years experience" />
+        <StatCounter to={20} suffix="+" label="Projects delivered" />
+        <StatCounter to={3} label="Specialists on team" />
+        <StatCounter to={100} suffix="%" label="Client retention" />
       </section>
 
       <motion.section
@@ -430,13 +430,28 @@ export default function HomePage() {
             </article>
           ))}
         </motion.div>
-        <motion.a variants={fadeInUp} href="#" className={styles.inlineLink}>
+        <motion.a variants={fadeInUp} href="#projects" className={styles.inlineLink}>
           View all projects →
         </motion.a>
       </motion.section>
 
       <motion.section
         className={styles.section}
+        id="blog"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={staggered}
+      >
+        <motion.h2 variants={fadeInUp}>Blog</motion.h2>
+        <motion.p variants={fadeInUp} className={styles.sectionLead}>
+          Notes on product delivery, automation systems, and practical growth.
+        </motion.p>
+      </motion.section>
+
+      <motion.section
+        className={styles.section}
+        id="about"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
@@ -543,7 +558,7 @@ export default function HomePage() {
               <a href="#projects">Projects</a>
             </li>
             <li>
-              <a href="#top">About</a>
+              <a href="#about">About</a>
             </li>
           </ul>
         </div>
@@ -559,7 +574,7 @@ export default function HomePage() {
               </a>
             </li>
             <li className={styles.socials}>
-              <a href="#" aria-label="Facebook">
+              <a href="https://www.facebook.com/xcler.dev" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M13.5 9H16V6h-2.5C10.7 6 10 7.7 10 10v2H8v3h2v5h3v-5h2.4l.6-3H13v-1.7c0-.8.2-1.3 1.5-1.3z"
@@ -567,7 +582,7 @@ export default function HomePage() {
                   />
                 </svg>
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="https://www.instagram.com/xcler.dev" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm4.5-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
