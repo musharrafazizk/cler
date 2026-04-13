@@ -17,7 +17,7 @@ const csp = [
   "frame-ancestors 'self'",
   "img-src 'self' data: blob: https://xcler.dev https://*.supabase.co",
   "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
+  "style-src 'self'",
   "font-src 'self' data: https://fonts.gstatic.com",
   "connect-src 'self' https://*.supabase.co https://api.resend.com",
 ].join("; ");

@@ -25,7 +25,7 @@ export default function TopNoticeBar() {
           window.localStorage.setItem(storageKey, "true");
           setVisible(false);
         }}
-        aria-label="Dismiss location notice"
+        aria-label="Close location notice"
       >
         ×
       </button>
