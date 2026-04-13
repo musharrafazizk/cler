@@ -9,8 +9,8 @@ type Params = { city: string };
 
 const cityLabel = (city: string) => city.charAt(0).toUpperCase() + city.slice(1);
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const { city } = params;
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { city } = await params;
 
   if (!cityNames.includes(city as City)) {
     return {};
@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default async function ServiceCityPage({ params }: { params: Params }) {
-  const { city } = params;
+export default async function ServiceCityPage({ params }: { params: Promise<Params> }) {
+  const { city } = await params;
 
   if (!cityNames.includes(city as City)) {
     notFound();

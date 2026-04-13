@@ -12,7 +12,7 @@ export const metadata = buildPageMetadata({
 });
 
 export default async function BlogPage() {
-  let posts = await getBlogPosts(true).catch(() => []);
+  const posts = await getBlogPosts(true).catch(() => []);
 
   return (
     <main className={styles.container}>

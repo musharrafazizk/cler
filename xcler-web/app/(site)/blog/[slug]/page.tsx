@@ -7,8 +7,8 @@ import styles from "@/app/(site)/content.module.css";
 
 type Params = { slug: string };
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   const post = await getBlogPost(slug).catch(() => null);
 
   if (!post) {
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default async function BlogPostPage({ params }: { params: Params }) {
-  const { slug } = params;
+export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   const post = await getBlogPost(slug).catch(() => null);
 
   if (!post || !post.published) {

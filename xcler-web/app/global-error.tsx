@@ -20,7 +20,7 @@ export default function GlobalError({ reset }: { reset: () => void }) {
         <button
           type="button"
           onClick={reset}
-          style={{ background: "#E63329", color: "#fff", padding: "10px 16px", border: 0, cursor: "pointer" }}
+          style={{ background: "#B6251D", color: "#fff", padding: "10px 16px", border: 0, cursor: "pointer" }}
         >
           Try again
         </button>

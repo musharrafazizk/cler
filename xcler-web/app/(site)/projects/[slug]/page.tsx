@@ -12,8 +12,8 @@ async function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug) ?? null;
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   const project = await getProjectBySlug(slug).catch(() => null);
 
   if (!project) {
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   });
 }
 
-export default async function ProjectPage({ params }: { params: Params }) {
-  const { slug } = params;
+export default async function ProjectPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   const project = await getProjectBySlug(slug).catch(() => null);
 
   if (!project) {

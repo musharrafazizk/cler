@@ -18,7 +18,7 @@ export default function NotFound() {
       <p>This page doesn&apos;t exist.</p>
       <Link
         href="/"
-        style={{ background: "#E63329", color: "#fff", padding: "10px 16px", display: "inline-block" }}
+        style={{ background: "#B6251D", color: "#fff", padding: "10px 16px", display: "inline-block" }}
       >
         Go home →
       </Link>

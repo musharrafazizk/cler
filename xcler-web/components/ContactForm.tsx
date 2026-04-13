@@ -101,10 +101,10 @@ export default function ContactForm() {
         </select>
       </label>
 
-      {error ? <p style={{ color: "#E63329" }}>{error}</p> : null}
+      {error ? <p style={{ color: "#B6251D" }}>{error}</p> : null}
       {success ? <p style={{ color: "#2f9e44" }}>We&apos;ll be in touch on WhatsApp within 24 hours.</p> : null}
 
-      <button type="submit" disabled={loading} style={{ background: "#E63329", color: "#fff", padding: "10px 14px", border: 0, borderRadius: 8 }}>
+      <button type="submit" disabled={loading} style={{ background: "#B6251D", color: "#fff", padding: "10px 14px", border: 0, borderRadius: 8 }}>
         {loading ? "Sending..." : "Send inquiry"}
       </button>
     </form>

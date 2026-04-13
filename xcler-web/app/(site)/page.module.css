@@ -76,7 +76,7 @@
 }
 
 .navLinks a:hover {
-  color: #e63329;
+  color: #b6251d;
 }
 
 .navActions {
@@ -132,9 +132,9 @@
 }
 
 .primaryButton {
-  background: #e63329;
+  background: #b6251d;
   color: #f5f3ee;
-  border-color: #e63329;
+  border-color: #b6251d;
 }
 
 .outlineButton {
@@ -354,7 +354,7 @@
 }
 
 .projectCard:hover .projectNumber {
-  color: #e63329;
+  color: #b6251d;
 }
 
 .projectCard:hover .projectTitle {
@@ -558,7 +558,7 @@
   display: grid;
   place-items: center;
   border-radius: 999px;
-  background: #e63329;
+  background: #b6251d;
   color: #f5f3ee;
   animation: pulse 2.2s ease-in-out infinite;
 }
