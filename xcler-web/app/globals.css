@@ -3,10 +3,10 @@
   --color-bg-dark: #111110;
   --color-text: #111110;
   --color-text-dark: #F5F3EE;
-  --color-accent: #E63329;
+  --color-accent: #B6251D;
   --color-muted: #888680;
-  --font-heading: "Syne", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-body: "Geist", sans-serif;
+  --font-heading: var(--font-body);
 }
 
 .dark {
@@ -45,4 +45,46 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.noticeBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.74rem;
+  line-height: 1;
+  padding: 8px 12px;
+  background: #e9e6df;
+  color: #6b6966;
+}
+
+.noticeBar button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.noscriptBanner {
+  margin: 0;
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 0.85rem;
+  background: #111110;
+  color: #f5f3ee;
+}
+
+.skeletonPulse {
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeletonPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }

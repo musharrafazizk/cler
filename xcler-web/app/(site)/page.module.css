@@ -76,7 +76,7 @@
 }
 
 .navLinks a:hover {
-  color: #e63329;
+  color: #b6251d;
 }
 
 .navActions {
@@ -132,9 +132,9 @@
 }
 
 .primaryButton {
-  background: #e63329;
+  background: #b6251d;
   color: #f5f3ee;
-  border-color: #e63329;
+  border-color: #b6251d;
 }
 
 .outlineButton {
@@ -313,6 +313,28 @@
   padding-top: 16px;
 }
 
+.projectCover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 1px solid #e0ded8;
+}
+
+.projectCoverPlaceholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  margin-bottom: 14px;
+  border: 1px solid #e0ded8;
+  background: rgba(230, 51, 41, 0.12);
+  color: #e63329;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+}
+
 .projectNumber {
   display: inline-block;
   color: #6b6966;
@@ -332,7 +354,7 @@
 }
 
 .projectCard:hover .projectNumber {
-  color: #e63329;
+  color: #b6251d;
 }
 
 .projectCard:hover .projectTitle {
@@ -347,7 +369,7 @@
 .inlineLink {
   margin-top: 20px;
   display: inline-flex;
-  color: #e63329;
+  color: #b6251d;
 }
 
 .teamGrid,
@@ -371,6 +393,15 @@
   place-items: center;
   font-family: var(--font-heading);
   margin-bottom: 12px;
+}
+
+.avatarPhoto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 1px solid #e0ded8;
 }
 
 .teamCard h3,
@@ -441,7 +472,7 @@
 }
 
 .customLine a {
-  color: #e63329;
+  color: #b6251d;
 }
 
 .finalCta {
@@ -527,7 +558,7 @@
   display: grid;
   place-items: center;
   border-radius: 999px;
-  background: #e63329;
+  background: #b6251d;
   color: #f5f3ee;
   animation: pulse 2.2s ease-in-out infinite;
 }

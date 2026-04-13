@@ -260,7 +260,7 @@ export default function AdminProjectsPage() {
                 />
               </label>
               {form.image_url ? (
-                <a href={form.image_url} target="_blank" rel="noreferrer">
+                <a href={form.image_url} target="_blank" rel="noopener noreferrer">
                   Preview image URL
                 </a>
               ) : null}
