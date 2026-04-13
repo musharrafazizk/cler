@@ -1,0 +1,44 @@
+:root {
+  --color-bg: #F5F3EE;
+  --color-bg-dark: #111110;
+  --color-text: #111110;
+  --color-text-dark: #F5F3EE;
+  --color-accent: #E63329;
+  --color-muted: #888680;
+  --font-heading: "Syne", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  color: var(--color-text-dark);
+  background: var(--color-bg-dark);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
