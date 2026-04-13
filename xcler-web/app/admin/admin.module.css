@@ -1,0 +1,309 @@
+.page {
+  min-height: 100vh;
+  background: #0f0f10;
+  color: #f5f3ee;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  border-right: 1px solid #252529;
+  background: #121214;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav a {
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #d8d6d2;
+}
+
+.nav a:hover,
+.nav a.active,
+.active {
+  background: rgba(230, 51, 41, 0.15);
+  color: #e63329;
+}
+
+.signOut {
+  margin-top: auto;
+  border: none;
+  background: transparent;
+  color: #d8d6d2;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signOut:hover {
+  background: #252529;
+}
+
+.main {
+  flex: 1;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #252529;
+  color: #f5f3ee;
+}
+
+.primaryButton {
+  background: #e63329;
+  color: #fff;
+}
+
+.tableWrap {
+  border: 1px solid #252529;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #252529;
+  vertical-align: top;
+}
+
+.table th {
+  color: #b8b5af;
+  font-size: 0.9rem;
+}
+
+.panelBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(520px, 100%);
+  height: 100vh;
+  background: #151518;
+  border-left: 1px solid #252529;
+  z-index: 21;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #d8d6d2;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border: 1px solid #2f2f35;
+  background: #0f0f10;
+  color: #f5f3ee;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.monospace {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  min-height: 220px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid #34343b;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+}
+
+.toastStack {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  gap: 8px;
+  z-index: 30;
+}
+
+.toast {
+  border-radius: 8px;
+  padding: 10px 12px;
+  border: 1px solid #2f2f35;
+  background: #1d1d22;
+}
+
+.toast.success {
+  border-color: rgba(75, 181, 67, 0.6);
+}
+
+.toast.error {
+  border-color: rgba(230, 51, 41, 0.7);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #252529;
+  border-radius: 12px;
+  padding: 14px;
+  background: #151518;
+}
+
+.quickLinks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.quickLinks a {
+  border: 1px solid #2f2f35;
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+
+.loginWrap {
+  min-height: 100vh;
+  background: #0f0f10;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 420px;
+  background: #151518;
+  border: 1px solid #252529;
+  border-radius: 14px;
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+  color: #f5f3ee;
+}
+
+.error {
+  color: #ff7a73;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #72d86a;
+  font-size: 0.9rem;
+}
+
+.mobileTop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid #252529;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .mobileTop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .mobileTop a {
+    font-size: 0.9rem;
+    border: 1px solid #2f2f35;
+    border-radius: 999px;
+    padding: 6px 10px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
