@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getSettings } from "@/lib/db";
 import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
-const syne = Syne({ subsets: ["latin"], variable: "--font-heading" });
-const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+const syne = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xcler.dev"),
@@ -41,13 +52,13 @@ export const metadata: Metadata = {
     title: "Xcler — Web Development, Automation & AI Agency",
     description:
       "We build web apps, automate workflows, and deploy AI systems for businesses that mean business.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Xcler Digital Agency" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Xcler Digital Agency" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Xcler — Web Development & Automation Agency",
     description: "Web apps, automation, and AI systems for businesses that mean business.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -77,6 +88,11 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${syne.variable}`}>
+        <noscript>
+          <div className="noscriptBanner">
+            JavaScript is disabled. You can still browse core content, but interactive features are unavailable.
+          </div>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -84,6 +100,8 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system">
           {children}
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -273,6 +273,27 @@
   display: none;
 }
 
+.loadingWrap {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+}
+
+.loadingSpinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 3px solid #252529;
+  border-top-color: #e63329;
+  animation: adminSpin 0.8s linear infinite;
+}
+
+@keyframes adminSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;

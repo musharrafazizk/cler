@@ -1,11 +1,13 @@
 import HomePageClient from "@/components/site/HomePageClient";
 import { getProjects, getTeamMembers, getTestimonials } from "@/lib/db";
+import { buildPageMetadata } from "@/lib/metadata";
 import type { Project, TeamMember, Testimonial } from "@/lib/types";
 
 type HomeProject = {
   name: string;
   tags: string;
   description: string;
+  imageUrl?: string | null;
 };
 
 type HomeTeam = {
@@ -13,6 +15,7 @@ type HomeTeam = {
   role: string;
   initials: string;
   skills: string[];
+  photoUrl?: string | null;
 };
 
 type HomeTestimonial = {
@@ -80,6 +83,7 @@ const toHomeProject = (item: Project): HomeProject => ({
   name: item.title,
   tags: item.tags.join(" · "),
   description: item.description,
+  imageUrl: item.image_url,
 });
 
 const toHomeTeam = (item: TeamMember): HomeTeam => ({
@@ -92,6 +96,7 @@ const toHomeTeam = (item: TeamMember): HomeTeam => ({
     .map((part) => part[0]?.toUpperCase() ?? "")
     .join(""),
   skills: item.skills,
+  photoUrl: item.photo_url,
 });
 
 const toHomeTestimonial = (item: Testimonial): HomeTestimonial => ({
@@ -130,3 +135,10 @@ export default async function HomePage() {
 
   return <HomePageClient projects={projects} team={team} testimonials={testimonials} />;
 }
+
+export const metadata = buildPageMetadata({
+  title: "Xcler — Web Development, App Development & Automation Agency",
+  description:
+    "Xcler is a digital agency specializing in web development, app development, workflow automation, AI agents, WordPress, and Shopify.",
+  path: "/",
+});

@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "@/app/(site)/page.module.css";
+import { blurDataURL } from "@/lib/image";
 
 type Service = {
   title: string;
@@ -16,6 +18,7 @@ type Project = {
   name: string;
   tags: string;
   description: string;
+  imageUrl?: string | null;
 };
 
 type Team = {
@@ -23,6 +26,7 @@ type Team = {
   role: string;
   initials: string;
   skills: string[];
+  photoUrl?: string | null;
 };
 
 type Testimonial = {
@@ -299,9 +303,9 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
               See our work ↓
             </a>
             <a
-              href="https://wa.me/923154823517"
+              href="https://wa.me/923154823517?text=Hi%20Xcler%2C%20I%20found%20you%20online%20and%20I%27d%20like%20to%20discuss%20a%20project."
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className={styles.primaryButton}
             >
               WhatsApp us
@@ -313,13 +317,17 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
           <div className={styles.marqueeTrack}>
             <span>
               WEB DEVELOPMENT · APP DEVELOPMENT · WORKFLOW AUTOMATION · AI
-              AGENTS · CHATBOTS · WORDPRESS · SHOPIFY · NEXT.JS · N8N ·
-              MAKE.COM ·
+              AGENTS · CHATBOTS · WORDPRESS · SHOPIFY · NEXT.JS · N8N · MAKE.COM
+              · WEBENTWICKLUNG · APP ENTWICKLUNG · KI AUTOMATISIERUNG · CHATBOTS ·
+              WORDPRESS · SHOPIFY · NEXT.JS · N8N · MAKE.COM · WORKFLOW AUTOMATION
+              ·
             </span>
             <span>
               WEB DEVELOPMENT · APP DEVELOPMENT · WORKFLOW AUTOMATION · AI
-              AGENTS · CHATBOTS · WORDPRESS · SHOPIFY · NEXT.JS · N8N ·
-              MAKE.COM ·
+              AGENTS · CHATBOTS · WORDPRESS · SHOPIFY · NEXT.JS · N8N · MAKE.COM
+              · WEBENTWICKLUNG · APP ENTWICKLUNG · KI AUTOMATISIERUNG · CHATBOTS ·
+              WORDPRESS · SHOPIFY · NEXT.JS · N8N · MAKE.COM · WORKFLOW AUTOMATION
+              ·
             </span>
           </div>
         </div>
@@ -368,6 +376,22 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
         <motion.div variants={fadeInUp} className={styles.projectsGrid}>
           {projects.map((project, index) => (
             <article key={project.name} className={styles.projectCard}>
+              {project.imageUrl ? (
+                <Image
+                  src={project.imageUrl}
+                  alt={`${project.name} cover image`}
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 980px) 100vw, 33vw"
+                  className={styles.projectCover}
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+              ) : (
+                <div className={styles.projectCoverPlaceholder} aria-hidden="true">
+                  {project.name.slice(0, 2).toUpperCase()}
+                </div>
+              )}
               <span className={styles.projectNumber}>
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -408,7 +432,20 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
         <motion.div variants={fadeInUp} className={styles.teamGrid}>
           {team.map((person) => (
             <article key={person.name} className={styles.teamCard}>
-              <div className={styles.avatar}>{person.initials}</div>
+              {person.photoUrl ? (
+                <Image
+                  src={person.photoUrl}
+                  alt={`${person.name} photo`}
+                  width={400}
+                  height={400}
+                  sizes="(max-width: 980px) 100vw, 33vw"
+                  className={styles.avatarPhoto}
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                />
+              ) : (
+                <div className={styles.avatar}>{person.initials}</div>
+              )}
               <h3>{person.name}</h3>
               <p>{person.role}</p>
               <div className={styles.tags}>
@@ -462,7 +499,7 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
         </motion.div>
         <motion.p variants={fadeInUp} className={styles.customLine}>
           Need something custom? Let&apos;s talk.{" "}
-          <a href="https://wa.me/923154823517" target="_blank" rel="noreferrer">
+          <a href="https://wa.me/923154823517" target="_blank" rel="noopener noreferrer">
             WhatsApp us
           </a>
         </motion.p>
@@ -516,12 +553,17 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
               <a href="mailto:hello@xcler.dev">hello@xcler.dev</a>
             </li>
             <li>
-              <a href="https://wa.me/923154823517" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/923154823517" target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
             </li>
             <li className={styles.socials}>
-              <a href="https://www.facebook.com/xcler.dev" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/xcler.dev"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M13.5 9H16V6h-2.5C10.7 6 10 7.7 10 10v2H8v3h2v5h3v-5h2.4l.6-3H13v-1.7c0-.8.2-1.3 1.5-1.3z"
@@ -529,7 +571,12 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
                   />
                 </svg>
               </a>
-              <a href="https://www.instagram.com/xcler.dev" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/xcler.dev"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm4.5-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
@@ -549,7 +596,7 @@ export default function HomePageClient({ projects, team, testimonials }: HomePag
       <a
         href="https://wa.me/923154823517"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={styles.whatsAppFloat}
         aria-label="Chat on WhatsApp"
       >
