@@ -7,13 +7,13 @@ import { getSettings } from "@/lib/db";
 import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
-const syne = localFont({
+const headingFont = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-heading",
   display: "swap",
 });
 
-const inter = localFont({
+const bodyFont = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-body",
   display: "swap",
@@ -87,7 +87,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${syne.variable}`}>
+      <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         <noscript>
           <div className="noscriptBanner">
             JavaScript is disabled. You can still browse core content, but interactive features are unavailable.

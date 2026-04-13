@@ -25,7 +25,10 @@ const csp = [
 const nextConfig = {
   compress: true,
   images: {
-    domains: ["xcler.dev", ...(supabaseHost ? [supabaseHost] : [])],
+    remotePatterns: [
+      { protocol: "https", hostname: "xcler.dev" },
+      ...(supabaseHost ? [{ protocol: "https", hostname: supabaseHost }] : []),
+    ],
   },
   async headers() {
     return [
